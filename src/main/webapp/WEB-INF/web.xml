@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<web-app  
+        version="3.0"  
+        xmlns="http://java.sun.com/xml/ns/javaee"  
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">  
+
+  <display-name>Blog</display-name>
+  
+         <!--  <welcome-file-list>标签元素就会指定显示的默认文件   -->
+  <welcome-file-list>
+  	<welcome-file>a.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- Shiro过滤器定义 -->
+  <filter>
+  	<filter-name>shiroFilter</filter-name>
+  	<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+  	<init-param>
+  	<!-- 该值缺省为false，表示生命周期由SpringApplicationContext管理，设置为true表示由ServletContainer管理 -->
+  		<param-name>targetFilterLifecycle</param-name>
+  		<param-value>true</param-value>
+  	</init-param>
+  </filter>
+  
+        <!--Shiros是我们开发中常用的用来实现权限控制的一种工具包，  它主要有认证、授权、加密、会话管理、
+                        与Web集成、缓存等功能。-->
+  <filter-mapping>
+  	<filter-name>shiroFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <!-- Spring配置文件 -->
+  <context-param>
+  	<param-name>contextConfigLocation</param-name>
+  	<param-value>classpath:applicationContext.xml</param-value>
+  </context-param>
+  
+  <!-- 编码过滤器 -->
+  <filter>
+  	<filter-name>encodingFilter</filter-name>
+  	<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+  	<async-supported>true</async-supported>
+  	<init-param>
+		<param-name>encoding</param-name>
+		<param-value>UTF-8</param-value>
+	</init-param>
+  </filter>
+  <filter-mapping>
+  	<filter-name>encodingFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <!-- Spring监听器 -->
+          <!-- 监听器的作用是监听一些事件的发生从而进行一些操作，比如监听ServletContext,HttpSession的创建，
+                             销毁，从而执行一些初始化加载配置文件的操作 -->
+  <listener>
+  	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  
+  <listener>
+  	<listener-class>com.blog.service.impl.InitComponent</listener-class>
+  </listener>
+  
+  <!-- 添加对SpringMVC的支持 -->
+  <servlet>
+  	<servlet-name>springMVC</servlet-name>
+  	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  	<init-param>
+  		<param-name>contextConfigLocation</param-name>
+  		<param-value>classpath:spring-mvc.xml</param-value>
+  	</init-param>
+  	<load-on-startup>1</load-on-startup>
+  	<async-supported>true</async-supported>
+  </servlet>
+  
+             <!-- 在利用servlet或Filter进行url请求的匹配时，很关键的一点就是匹配规则，
+                                   但servlet容器中的匹配规则既不是简单的通配，也不是正则表达式，而是由自己的规则：
+                  1.完全匹配    2.路径匹配   3.扩展名匹配 -->
+  <servlet-mapping>
+  	<servlet-name>springMVC</servlet-name>
+  	<url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>springMVC</servlet-name>
+  	<url-pattern>*.html</url-pattern>
+  </servlet-mapping>
+  
+</web-app>

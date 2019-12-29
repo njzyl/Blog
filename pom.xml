@@ -1,0 +1,288 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com</groupId>
+  <artifactId>Blog</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Blog Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <!-- 添加Servlet支持  -->
+    <dependency>
+    	<groupId>javax.servlet</groupId>
+    	<artifactId>javax.servlet-api</artifactId>
+    	<version>3.1.0</version>
+    	<scope>provided</scope>
+    </dependency>
+    
+    <dependency>
+    	<groupId>javax.servlet.jsp</groupId>
+    	<artifactId>javax.servlet.jsp-api</artifactId>
+    	<version>2.3.1</version>
+    	<scope>provided</scope>
+    </dependency>
+    
+    <!-- 添加jstl支持  -->
+    <dependency>
+    	<groupId>javax.servlet</groupId>
+    	<artifactId>jstl</artifactId>
+    	<version>1.2</version>
+    </dependency>
+    
+    <!-- 添加Spring支持  -->
+            <!-- Spring的核心工具包 -->
+    <dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-core</artifactId>
+    	<version>4.1.7.RELEASE</version>
+    </dependency>
+         
+             <!--  Spring IOC的基础实现，包含访问配置文件、创建和管理bean等 -->
+    <dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-beans</artifactId>
+    	<version>4.1.7.RELEASE</version>
+    </dependency>
+       
+             <!-- 为JDBC、Hibernate、JDO、JPA等提供的一致的声明式和编程式事务管理 -->
+    <dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-tx</artifactId>
+    	<version>4.1.7.RELEASE</version>
+    </dependency>
+       
+            <!--  
+                          在基础IOC功能上提供扩展服务，此外还提供许多企业级服务的支持，
+             -->
+    <dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-context</artifactId>
+    	<version>4.1.7.RELEASE</version>
+    </dependency>
+              <!-- Spring context的扩展支持，用于MVC方面 -->
+    <dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-context-support</artifactId>
+    	<version>4.1.7.RELEASE</version>
+    </dependency>
+    
+            <!-- 
+                          包含Web应用开发时，用到Spring框架时所需的核心类，
+                          包括自动载入WebApplicationContext特性的类、Struts与JSF集成类、
+                          文件上传的支持类、Filter类和大量工具辅助类
+             -->
+    <dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-web</artifactId>
+    	<version>4.1.7.RELEASE</version>
+    </dependency>
+    
+              <!-- 
+                                 包含SpringMVC框架相关的所有类。包含国际化、标签、Theme、
+                                  视图展现的FreeMarker、JasperReports、 Tiles、Velocity、XSLT相关类。
+                                  当然，如果你的应用使用了独立的MVC框架，则无需这个JAR文件里的任何类
+                -->
+    <dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-webmvc</artifactId>
+    	<version>4.1.7.RELEASE</version>
+    </dependency>
+    
+                 <!-- Spring的面向切面编程，提供AOP（面向切面编程）的实现 -->
+    <dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-aop</artifactId>
+    	<version>4.1.7.RELEASE</version>
+    </dependency>
+    
+                  <!-- Spring提供的对AspectJ框架的整合 -->
+    <dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-aspects</artifactId>
+    	<version>4.1.7.RELEASE</version>
+    </dependency>
+    
+                   <!-- 对JDBC 的简单封装 -->
+    <dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-jdbc</artifactId>
+    	<version>4.1.7.RELEASE</version>
+    </dependency>
+    
+               <!-- 
+                  Mybatis-Spring 中提供了继承自 Spring 接口 FactoryBean 的 SqlSessionFactoryBean 类，
+                                   它提供 getObject() 方法来获取 SqlSessionFactory 。
+                                    所以可以用基于Java配置的方式配置 SqlSessionFactory 。
+                -->
+    <dependency>
+    	<groupId>org.mybatis</groupId>
+    	<artifactId>mybatis-spring</artifactId>
+    	<version>1.2.3</version>
+    </dependency>
+    
+    <!-- 添加日志支持 -->
+    <dependency>
+    	<groupId>log4j</groupId>
+    	<artifactId>log4j</artifactId>
+    	<version>1.2.17</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.slf4j</groupId>
+    	<artifactId>slf4j-log4j12</artifactId>
+    	<version>1.7.12</version>
+    </dependency>
+    
+    <!-- 添加mybatis支持  -->
+    <dependency>
+    	<groupId>org.mybatis</groupId>
+    	<artifactId>mybatis</artifactId>
+    	<version>3.3.0</version>
+    </dependency>
+    
+    <!-- JDBC驱动包 -->
+    <dependency>
+    	<groupId>mysql</groupId>
+    	<artifactId>mysql-connector-java</artifactId>
+    	<version>5.1.37</version>
+    </dependency>
+    
+    <!-- 添加shiro支持  -->
+    <dependency>
+    	<groupId>org.apache.shiro</groupId>
+    	<artifactId>shiro-core</artifactId>
+    	<version>1.2.4</version>
+    </dependency>
+    
+    <dependency>
+    	<groupId>org.apache.shiro</groupId>
+    	<artifactId>shiro-web</artifactId>
+    	<version>1.2.4</version>
+    </dependency>
+    
+    <dependency>
+    	<groupId>org.apache.shiro</groupId>
+    	<artifactId>shiro-spring</artifactId>
+    	<version>1.2.4</version>
+    </dependency>
+    
+    
+    <!-- 添加ueditor编辑器支持  -->
+    <dependency>
+    	<groupId>commons-fileupload</groupId>
+    	<artifactId>commons-fileupload</artifactId>
+    	<version>1.3.1</version>
+    </dependency>
+    
+    
+    <!-- 添加apache公共包  -->
+               <!-- 这个工具是用来编码和解码的，包括Base64，URL，Soundx等等 -->
+    <dependency>
+    	<groupId>commons-codec</groupId>
+    	<artifactId>commons-codec</artifactId>
+    	<version>1.10</version>
+    </dependency>
+    
+             <!-- 
+                                 这个工具包可以看成是对java.lang的扩展。提供了诸如StringUtils, 
+                StringEscapeUtils, RandomStringUtils, Tokenizer, WordUtils等工具类。
+              -->
+    <dependency>
+    	<groupId>commons-lang</groupId>
+    	<artifactId>commons-lang</artifactId>
+    	<version>2.5</version>
+    </dependency>
+    
+               <!-- 提供了对于JavaBean进行各种操作，克隆对象,属性等等 -->
+    <dependency>
+    	<groupId>commons-beanutils</groupId>
+    	<artifactId>commons-beanutils</artifactId>
+    	<version>1.8.0</version>
+    </dependency>
+    
+                <!-- java集合框架操作 -->
+    <dependency>
+    	<groupId>commons-collections</groupId>
+    	<artifactId>commons-collections</artifactId>
+    	<version>3.2.1</version>
+    </dependency>
+    
+                <!-- 提供的是一个Java 的日志接口 -->
+    <dependency>
+    	<groupId>commons-logging</groupId>
+    	<artifactId>commons-logging</artifactId>
+    	<version>1.1.1</version>
+    </dependency>
+                 
+                <!-- 
+                    EZMorph是一个简单的java类库用于将一种对象转换成另外一种对象。
+                    EZMorph原先是Json-lib项目中的转换器。EZMorph支持原始 数据类型（Primitive），
+                                        对象（Object），多维数组转换与DynaBeans的转换 
+                 -->
+    <dependency>
+    	<groupId>net.sf.ezmorph</groupId>
+    	<artifactId>ezmorph</artifactId>
+    	<version>1.0.6</version>
+    </dependency>
+    
+    <!-- 添加lucene（全文搜索引擎）支持 -->
+    <dependency>
+    	<groupId>org.apache.lucene</groupId>
+    	<artifactId>lucene-core</artifactId>
+    	<version>5.3.1</version>
+    </dependency>
+    
+    <dependency>
+    	<groupId>org.apache.lucene</groupId>
+    	<artifactId>lucene-analyzers-common</artifactId>
+    	<version>5.3.1</version>
+    </dependency>
+    
+    <dependency>
+    	<groupId>org.apache.lucene</groupId>
+    	<artifactId>lucene-analyzers-smartcn</artifactId>
+    	<version>5.3.1</version>
+    </dependency>
+    
+    <dependency>
+    	<groupId>org.apache.lucene</groupId>
+    	<artifactId>lucene-queryparser</artifactId>
+    	<version>5.3.1</version>
+    </dependency>
+    
+    <dependency>
+    	<groupId>org.apache.lucene</groupId>
+    	<artifactId>lucene-highlighter</artifactId>
+    	<version>5.3.1</version>
+    </dependency>
+    
+    <!-- 添加连接池druid支持 -->
+    <dependency>
+    	<groupId>com.alibaba</groupId>
+    	<artifactId>druid</artifactId>
+    	<version>1.0.16</version>
+    </dependency>
+    
+    <!-- 添加jsoup支持 -->
+               <!--
+                jsoup是一款Java的HTML解析器，主要用来对HTML解析 
+                                其中，要被解析的HTML可以是一个HTML的字符串，可以是一个URL，可以是一个文件
+                -->
+    <dependency>
+    	<groupId>org.jsoup</groupId>
+    	<artifactId>jsoup</artifactId>
+    	<version>1.8.3</version>
+    </dependency>
+    
+  </dependencies>
+  <build>
+    <finalName>Blog</finalName>
+  </build>
+</project>
