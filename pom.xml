@@ -49,7 +49,7 @@
     <dependency>
     	<groupId>org.springframework</groupId>
     	<artifactId>spring-beans</artifactId>
-    	<version>4.1.7.RELEASE</version>
+    	<version>5.3.18</version>
     </dependency>
        
              <!-- 为JDBC、Hibernate、JDO、JPA等提供的一致的声明式和编程式事务管理 -->
